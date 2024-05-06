@@ -1,0 +1,7 @@
+-Install nuget packages
+Entity Framework Core
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+-Scaffold dbcontext
+Scaffold-DbContext "Server=Megan;Database=AdventureWorksDW2022;User Id=userid;Password=password;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/EntityFramework -f
