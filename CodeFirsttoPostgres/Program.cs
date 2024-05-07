@@ -1,7 +1,17 @@
+using EFDBfirst.Models.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<AdventureWorksDw2022Context>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectin"));
+});
 
 var app = builder.Build();
 

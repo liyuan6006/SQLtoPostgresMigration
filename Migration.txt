@@ -1,7 +1,26 @@
+-Dbfirst sln
 -Install nuget packages
-Entity Framework Core
+Microsoft.EntityFrameworkCore
 Microsoft.EntityFrameworkCore.SqlServer
 Microsoft.EntityFrameworkCore.Tools
 
 -Scaffold dbcontext
 Scaffold-DbContext "Server=Megan;Database=AdventureWorksDW2022;User Id=userid;Password=password;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/EntityFramework -f
+
+
+Codefirst sln
+- Install nuget packages
+Microsoft.EntityFrameworkCore
+Npgsql.EntityFrameworkCore.PostgreSQL
+Microsoft.EntityFrameworkCore.Tools
+-Copy all the models from dbfirst to codefirst
+-Clean up DbContext class
+-add connection string to appsetting
+-Add-Migration InitialMigration -C AdventureWorksDw2022Context -O Data/Migrations
+
+--comment out all ICollection
+public virtual ICollection<>
+--comment out this since it does not have primary key
+ public virtual DbSet<AdventureWorksDwbuildVersion> AdventureWorksDwbuildVersions { get; set; }
+--comment out all the view since they dont have key
+//public virtual DbSet<VAssocSeqLineItem> VAssocSeqLineItems { get; set; }
